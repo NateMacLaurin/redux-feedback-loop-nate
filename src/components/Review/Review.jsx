@@ -11,7 +11,7 @@ const Review = () => {
     const currentFeedback = useSelector(store => store.feedbackReducer);
     const handleSubmit = () => {
         //handle axios POST to database
-        axios.post('/submit', currentFeedback)
+        axios.post('/feedback/submit', currentFeedback)
             .then((response) => {
                 //dispatch a NEW type to redux
                 dispatch({

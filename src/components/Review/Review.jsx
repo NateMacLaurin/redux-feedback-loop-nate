@@ -1,14 +1,20 @@
 import {useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 
 const Review = () => {
     //route handler
     const history = useHistory();
+    //redux GET with dispatch
+    const dispatch = useDispatch();
     //redux GET with useSelector
     const currentFeedback = useSelector(store => store.feedbackReducer);
     const handleSubmit = () => {
         //handle axios POST to database
+        //dispatch a NEW type to redux
+        dispatch({
+            type: 'NEW'
+        })
         //push to success page on successful POST
         history.push('/success');
     }

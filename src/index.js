@@ -12,7 +12,7 @@ const defaultFeedback = {
     feeling: 0,
     understanding: 0,
     support: 0,
-    comment: ''
+    comments: ''
 }
 
 //one reducer to hold all 4 required states selected individually with action types
@@ -25,7 +25,7 @@ const feedbackReducer = (state = defaultFeedback, action) => {
         case 'SET_SUPPORT':    
             return {...state, support: action.payload};
         case 'SET_COMMENT':
-            return {...state, comment: action.payload};
+            return {...state, comments: action.payload};
         case 'NEW':
             return defaultFeedback;
         default:

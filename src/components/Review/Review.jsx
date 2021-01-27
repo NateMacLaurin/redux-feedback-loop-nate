@@ -33,7 +33,7 @@ const Review = () => {
                 <li>Feeling: {currentFeedback.feeling}</li>
                 <li>Understanding: {currentFeedback.understanding}</li>
                 <li>Support: {currentFeedback.support}</li>
-                <li>Comment: {currentFeedback.comment}</li>
+                <li>Comment: {currentFeedback.comments}</li>
             </ul>
         </div>
         <br />

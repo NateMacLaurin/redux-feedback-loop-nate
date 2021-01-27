@@ -4,7 +4,15 @@ const pool = require('../modules/pool.js');
 
 router.get('/admin', (req,res) => {
     console.log('GET from /feedback/admin');
-    res.send({data: 'success'});
+    pool.query(`SELECT * FROM "feedback";`)
+    .then((result) => {
+        console.log('GET from /feedback/admin: SUCCESS', result.rows);
+        res.send(result.rows);
+    })
+    .catch((err) => {
+        console.log('GET from /feedback/admin: FAIL', err);
+        res.sendStatus(500);
+    })
 });
 
 router.post('/submit', (req, res) => {

@@ -3,6 +3,7 @@
 * pg-pool configuration to Heroku.
 * It will look something like this:
 **/
+require('dotenv').config();
 
 const pg = require('pg');
 const url = require('url');
@@ -22,21 +23,19 @@ if (process.env.DATABASE_URL) {
         database: params.pathname.split('/')[1],
         ssl: { rejectUnauthorized: false },
         max: 10, // max number of clients in the pool
-        idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
-        user: 'postgres',
-        password: 'p3LmANHQ$p'
+        idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
     };
 
 } else {
     // only change the things on the right side of the ||
     config = {
-        user: process.env.PG_USER || null, //env var: PGUSER
-        password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
+        user: process.env.PG_USER, //env var: PGUSER
+        password: process.env.DATABASE_SECRET, //env var: PGPASSWORD
         host: process.env.DATABASE_SERVER || 'localhost', // Server hosting the postgres database
         port: process.env.DATABASE_PORT || 5432, //env var: PGPORT
         database: process.env.DATABASE_NAME || 'prime_feedback', //env var: PGDATABASE or the name of your database (e.g. database: process.env.DATABASE_NAME || 'koala_holla',)
         max: 10, // max number of clients in the pool
-        idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+        idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
     };
 }
 

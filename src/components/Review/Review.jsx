@@ -11,12 +11,18 @@ const Review = () => {
     const currentFeedback = useSelector(store => store.feedbackReducer);
     const handleSubmit = () => {
         //handle axios POST to database
-        //dispatch a NEW type to redux
-        dispatch({
-            type: 'NEW'
-        })
-        //push to success page on successful POST
-        history.push('/success');
+        axios.post('/submit', currentFeedback)
+            .then((response) => {
+                //dispatch a NEW type to redux
+                dispatch({
+                    type: 'NEW'
+                })
+                //push to success page on successful POST
+                history.push('/success');
+            })
+            .catch((err) => {
+                alert(`ERROR: ${err}`);
+            })
     }
 
     return(

@@ -1,11 +1,15 @@
 import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import {useEffect} from 'react';
 
 const Admin = () => {
-    
+    //on admin page load, run getData once
+    useEffect(() => getData(), []);
+    //route handler
     const history = useHistory();
 
-    const handleNext = () => {
+    //return to client feedback page
+    const handleReturn = () => {
         history.push('/');
     }
 
@@ -15,7 +19,7 @@ const Admin = () => {
             Administration Page
         </div>
         <br />
-        <button onClick={handleNext}>RETURN</button>
+        <button onClick={handleReturn}>RETURN</button>
         </>
     )
 }

@@ -1,7 +1,7 @@
 import {useHistory} from 'react-router-dom';
 
 const Success = () => {
-    
+    //route handler
     const history = useHistory();
 
     const handleNext = () => {

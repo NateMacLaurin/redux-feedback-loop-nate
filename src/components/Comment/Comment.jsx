@@ -1,7 +1,7 @@
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
-const Comments = () => {
+const Comment = () => {
     //route handler
     const history = useHistory();
     //redux SEND with dispatch
@@ -18,7 +18,7 @@ const Comments = () => {
 
     return(
         <>
-        <div className="comments">
+        <div className="comment">
             Any comments you want to leave?
         </div>
         <br />
@@ -27,4 +27,4 @@ const Comments = () => {
     )
 }
 
-export default Comments;
+export default Comment;

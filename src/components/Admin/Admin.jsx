@@ -5,13 +5,14 @@ import axios from 'axios';
 
 const Admin = () => {
     //create a local state to store axios GET data
-    const [feedbackData, setFeedbackData] = useState({});
+    const [feedbackData, setFeedbackData] = useState([]);
     //on admin page load, run getData once
     useEffect(() => getData(), []);
     //axios GET function
     const getData = () => {
         axios.get('/feedback/admin')
             .then((response) => {
+                console.log(response.data);
                 setFeedbackData(response.data);
             })
             .catch((err) => {
@@ -30,6 +31,32 @@ const Admin = () => {
         <div className="admin">
             Administration Page
         </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feeling</th>
+                    <th>Understanding</th>
+                    <th>Support</th>
+                    <th>Comments</th>
+                    <th>Flagged?</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {feedbackData.map((feedback) => {
+                    return(
+                        <tr key={feedback.id}>
+                            <td>{feedback.feeling}</td>
+                            <td>{feedback.understanding}</td>
+                            <td>{feedback.support}</td>
+                            <td>{feedback.comments}</td>
+                            <td>{feedback.flagged}</td>
+                            <td>{feedback.date}</td>
+                        </tr>
+                    )
+                })}
+            </tbody>
+            </table>
         <br />
         <button onClick={handleReturn}>RETURN</button>
         </>

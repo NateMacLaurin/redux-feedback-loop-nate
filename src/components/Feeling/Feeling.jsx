@@ -6,13 +6,16 @@ const Feeling = () => {
     const history = useHistory();
     //redux SEND with dispatch
     const dispatch = useDispatch();
-
+    //button handler to test input, dispatch if it's not empty and (1-5) or alert, then push to next page
     const handleNext = () => {
+        //test logic
+
+        //dispatch if test passes
         dispatch({
             type: 'SET_FEELING', 
             payload: 5
         });
-        //push to 'understanding' page on NEXT (a value is REQUIRED)
+        //push to 'understanding' page on NEXT
         history.push('/2');
     }
     return(

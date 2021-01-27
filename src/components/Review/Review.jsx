@@ -1,10 +1,14 @@
 import {useHistory} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import axios from 'axios';
 
 const Review = () => {
     
     const history = useHistory();
 
-    const handleNext = () => {
+    const handleSubmit = () => {
+        //handle axios POST to database
+        //push to success page on successful POST
         history.push('/success');
     }
 
@@ -14,7 +18,7 @@ const Review = () => {
             Review Your Feedback
         </div>
         <br />
-        <button onClick={handleNext}>SUBMIT</button>
+        <button onClick={handleSubmit}>SUBMIT</button>
         </>
     )
 }

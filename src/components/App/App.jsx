@@ -24,7 +24,7 @@ function App() {
       <Route path="/2" component={Understanding} />
       <Route path="/3" component={Support} />
       <Route path="/4" component={Comments} />
-      <Route path="/5" component={Review} />
+      <Route path="/review" component={Review} />
       <Route path="/success" component={Success} />
       <Route path="/admin" component={Admin} />
     </div>

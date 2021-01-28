@@ -6,8 +6,8 @@ const pool = require('../modules/pool.js');
 router.get('/admin', (req,res) => {
     //debug note to server
     console.log('GET from /feedback/admin');
-    //create query
-    pool.query(`SELECT * FROM "feedback";`)
+    //create query (order by id descending so most recent is always at the top since id is serialized)
+    pool.query(`SELECT * FROM "feedback" ORDER BY "id" DESC;`)
     .then((result) => {
         console.log('GET from /feedback/admin: SUCCESS', result.rows);
         res.send(result.rows);

@@ -29,7 +29,7 @@ const Admin = () => {
     return(
         <>
         <div className="admin">
-            Administration Page
+            Feedback Results
         </div>
         <table>
             <thead>
@@ -38,8 +38,6 @@ const Admin = () => {
                     <th>Understanding</th>
                     <th>Support</th>
                     <th>Comments</th>
-                    <th>Flagged?</th>
-                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,8 +48,6 @@ const Admin = () => {
                             <td>{feedback.understanding}</td>
                             <td>{feedback.support}</td>
                             <td>{feedback.comments}</td>
-                            <td>{feedback.flagged}</td>
-                            <td>{feedback.date}</td>
                         </tr>
                     )
                 })}

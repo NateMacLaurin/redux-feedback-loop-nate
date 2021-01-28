@@ -21,7 +21,7 @@ router.get('/admin', (req,res) => {
 //save reviewed feedback to database
 router.post('/submit', (req, res) => {
     //debug note to server
-    console.log('POST from /feedback/submit');
+    console.log('POST from /feedback/submit', req.body);
     //create query
     let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`;
     //send query with request body placeholders

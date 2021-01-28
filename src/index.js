@@ -27,7 +27,7 @@ const feedbackReducer = (state = defaultFeedback, action) => {
         case 'SET_COMMENT':
             return {...state, comments: action.payload};
         case 'NEW':
-            return defaultFeedback;
+            return state;
         default:
             return state;
     }

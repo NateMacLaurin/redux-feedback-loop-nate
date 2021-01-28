@@ -9,13 +9,15 @@ const Review = () => {
     const dispatch = useDispatch();
     //redux GET with useSelector
     const currentFeedback = useSelector(store => store.feedbackReducer);
+    //axios POST to postgres DB on final submit after user review
     const handleSubmit = () => {
         //handle axios POST to database
         axios.post('/feedback/submit', currentFeedback)
             .then((response) => {
                 //dispatch a NEW type to redux
                 dispatch({
-                    type: 'NEW'
+                    type: 'NEW',
+                    payload: currentFeedback
                 })
                 //push to success page on successful POST
                 history.push('/success');

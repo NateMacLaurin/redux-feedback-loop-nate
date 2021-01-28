@@ -26,17 +26,67 @@ const Review = () => {
                 alert(`ERROR: ${err}`);
             })
     }
+    //routes via useHistory to handle editing values before submission
+    const handleEdit = (target) => {
+        //redirect based on the class name of the button clicked
+        switch(target){
+            case 'feelingEdit':
+                history.push('/1');
+                return;
+            case 'understandingEdit':
+                history.push('/2');
+                return;
+            case 'supportEdit':
+                history.push('/3');
+                return;
+            case 'commentEdit':
+                history.push('/4');
+                return;
+            default:
+                return;
+        }
+    }
 
     return(
         <>
         <div className="review">
-            Review Your Feedback
-            <ul>
-                <li>Feeling: {currentFeedback.feeling}</li>
-                <li>Understanding: {currentFeedback.understanding}</li>
-                <li>Support: {currentFeedback.support}</li>
-                <li>Comment: {currentFeedback.comments}</li>
-            </ul>
+            <h2>Review Your Feedback</h2>
+            <table align="center" border="solid">
+                <tbody>
+                    <tr>
+                        <td>Feeling:</td>
+                        <td>{currentFeedback.feeling}</td>
+                        <td><button 
+                                value="feelingEdit" 
+                                onClick={(event) => handleEdit(event.target.value)}
+                            >Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Understanding:</td>
+                        <td>{currentFeedback.understanding}</td>
+                        <td><button 
+                                value="understandingEdit" 
+                                onClick={(event) => handleEdit(event.target.value)}
+                            >Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Support:</td>
+                        <td>{currentFeedback.support}</td>
+                        <td><button 
+                                value="supportEdit" 
+                                onClick={(event) => handleEdit(event.target.value)}
+                            >Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Comment:</td>
+                        <td>{currentFeedback.comments}</td>
+                        <td><button 
+                                value="commentEdit" 
+                                onClick={(event) => handleEdit(event.target.value)}
+                            >Edit</button></td>
+                    </tr>
+                </tbody>               
+            </table>
         </div>
         <br />
         <button onClick={handleSubmit}>SUBMIT</button>

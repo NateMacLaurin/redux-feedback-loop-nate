@@ -17,7 +17,9 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
-      <Route path="/" exact component={Feeling} />
+      <Route path="/" exact>
+        <Feeling  />
+      </Route>
       <Route path="/1" component={Feeling} />
       <Route path="/2" component={Understanding} />
       <Route path="/3" component={Support} />

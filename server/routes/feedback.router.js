@@ -26,10 +26,27 @@ router.post('/submit', (req, res) => {
     let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`;
     //send query with request body placeholders
     pool.query(queryText, [req.body.feeling, req.body.understanding, req.body.support, req.body.comments])
-        .then((result => {
+        .then((result) => {
             console.log(`POST SUCCESSFUL`);
             res.sendStatus(200);
-        }))
+        })
+        .catch((err) => {
+            console.log(`ERROR: ${err}`);
+            res.sendStatus(500);
+        });
+});
+
+router.delete('/delete', (req, res) => {
+    //debug note to server
+    console.log('DELETE from /feedback/delete', req.body);
+    //create query
+    let queryText = `DELETE * FROM "feedback" WHERE "id" = $1;`;
+    //send query with request body placeholders
+    pool.query(queryText, [req.body.delete])
+        .then((result) => {
+            console.log(`DELETE SUCCESSFUL`);
+            res.sendStatus(201);
+        })
         .catch((err) => {
             console.log(`ERROR: ${err}`);
             res.sendStatus(500);

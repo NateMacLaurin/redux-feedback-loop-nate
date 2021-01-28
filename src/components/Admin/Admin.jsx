@@ -29,9 +29,9 @@ const Admin = () => {
     return(
         <>
         <div className="admin">
-            Feedback Results
+            <h2>Feedback Results</h2>
         </div>
-        <table>
+        <table align="center" border="solid">
             <thead>
                 <tr>
                     <th>Feeling</th>

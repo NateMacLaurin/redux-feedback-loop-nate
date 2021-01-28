@@ -10,7 +10,6 @@ import Admin from "../Admin/Admin.jsx";
 import Success from "../Success/Success.jsx";
 
 function App() {
-
   return (
     <Router>
     <div className='App'>

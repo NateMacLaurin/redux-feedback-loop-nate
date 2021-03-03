@@ -1,9 +1,7 @@
-# Project Name
+# Feedback Flow
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+This app utilizes React, Node, Express, and PostgreSQL.
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This app allows the site to collect feedback through 4 separate view pages. At the end, the user has the opportunity to edit previous views and submit with data validation. Data is stored in a PostgreSQL database. The site has an admin page which displays a table of feedback results.
